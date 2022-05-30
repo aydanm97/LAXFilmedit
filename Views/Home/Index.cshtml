@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string[] FilmHeaders = new string[] {"Id"
+      ,"Movie Name"
+      ,"Year"
+      ,"Creator"
+      ,"Rating"
+      ,"Actors"
+      ,"Genre"
+    };
+}
+<div class="header">
+    <h1>Her er vores dominerede filmer til 2022!</h1>
+</div>
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @{
+                    foreach(var head in FilmHeaders)
+                    {
+                        <th>
+                        @head
+
+                        </th>
+                    }
+                }
+                
+            </tr>
+        </thead>
+        <tbody>
+            @{
+            if(Model != null)
+            {
+                //her bestemmer vi hvad vores tabel skulle vise
+               foreach (var Data in Model)
+               {
+                   <tr>
+                <td>@Data.id </td>
+                <td>@Data.MovieName </td>
+                <td>@Data.Year </td>
+                <td>@Data.Creator </td>
+                <td>@Data.Rating </td>
+                <td>@Data.Actors </td>
+                <td>@Data.Genre </td>
+                </tr>
+               }
+                
+            }
+        }
+        </tbody>
+    </table>
+
+</div>

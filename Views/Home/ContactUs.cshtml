@@ -1,0 +1,62 @@
+﻿@using LAXFilm.Controllers
+@model SendMailDto
+@{
+    ViewData["Title"] = "Contact";
+    
+}
+@using Microsoft.Extensions.Configuration;
+@using LAXFilm.Models;
+@using Microsoft.Extensions.Options;
+
+@using AspNetCore.ReCaptcha;
+
+
+<h1>@ViewBag.Message</h1>
+
+
+<form method="post" id="contact">
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input type="text" asp-for="@Model.Name" class="form-control" placeholder="Enter your Name">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Subject"></label>
+        <input type="text" asp-for="@Model.Subject" class="form-control" placeholder="Enter your subject">
+        <span class="text-danger" asp-validation-for="@Model.Subject"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Message"></label>
+        <input type="text" asp-for="@Model.Message" class="form-control" placeholder="Enter your message">
+        <span class="text-danger" asp-validation-for="@Model.Message"></span>
+        <div class="form-group">
+            <!--Man skal  bruge data-callback for at kunne tjekke i JS om boxen er markeret-->
+    <div class="g-recaptcha" data-callback="callback" data-sitekey="6LfaxvIfAAAAAEzLPHcl_oZuy2mGdYHFgnS3iSYU"></div>
+</div>
+        <button type="submit" class=" btn btn-default disabled px-3" style="background-color:lightgreen"  id="btnSubmit">Send Mail</button>
+    </div>
+    </form>
+    
+ 
+    <script src="https://www.google.com/recaptcha/api.js" async defer>
+    </script>
+    <script>
+        //her bekræfter man, at brugeren har markeret "Jeg er ikke robot" i recaptcha
+    function callback(){
+        var btnSubmit = document.getElementById("btnSubmit");
+        if(btnSubmit.classList.contains("disabled")){
+            btnSubmit.classList.remove("disabled");
+            
+        }
+    }
+    </script>
+     
+   
+
+      
+          
+
+
+
+
+

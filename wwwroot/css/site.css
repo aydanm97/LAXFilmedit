@@ -1,0 +1,51 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+content {
+    height: 1600px;
+}
+
+main-article {
+    height: 100%;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+    main-article section:first-child {
+        flex: 2;
+        overflow: auto;
+    }
+
+        main-article section:first-child p {
+            margin: 5px;
+            text-align: left;
+            vertical-align: bottom;
+            position: relative;
+            top: 65px
+        }
+
+    main-article section:last-child {
+        flex: 2;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+        main-article section:last-child img {
+            max-width: 200px;
+            margin: 10px;
+            object-fit: cover;
+            width: auto;
+            height: auto;
+            display: flexbox;
+        }
